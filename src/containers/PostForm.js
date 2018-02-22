@@ -1,15 +1,27 @@
 import React, { Component } from 'react';
+import { connect } from 'react-redux';
+import { updatePostFormData } from '../actions/postForm';
+import { bindActionCreators } from 'redux';
 
 class PostForm extends Component {
+
+  handleChange = event => {
+    const {name, value} = event.target
+    const currentPostFormData = Object.assign({}, this.props.postFormData, {[name]: value})
+    this.props.updatePostFormData(currentPostFormData)
+  }
+
   render() {
+    const {title, image_url, content} = this.props.postFormData;
     return (
       <div>
         <h1>Create new post</h1>
-        <form>
+        <form onSubmit={this.handleOnSubmit}>
           <div>
             <label htmlFor="title">Title:</label>
             <input
               type="text"
+              onChange={this.handleChange}
               name="title"
               value={title}
             />
@@ -18,6 +30,7 @@ class PostForm extends Component {
             <label htmlFor="image_url">Image:</label>
             <input
               type="text"
+              onChange={this.handleChange}
               name="image_url"
               value={image_url}
             />
@@ -26,6 +39,7 @@ class PostForm extends Component {
             <label htmlFor="content">Content:</label>
             <input
               type="text"
+              onChange={this.handleChange}
               name="content"
               value={content}
             />
@@ -37,4 +51,16 @@ class PostForm extends Component {
   }
 }
 
-export default PostForm;
+const mapStateToProps = state => {
+  return {
+    postFormData: state.postFormData
+  }
+}
+
+const mapDispatchToProps = (dispatch) => {
+  return bindActionCreators({
+    updatePostFormData
+  }, dispatch);
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(PostForm);
