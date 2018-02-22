@@ -1,5 +1,7 @@
 import { resetPostForm } from './postForm'
 
+const API_URL = process.env.REACT_APP_API_URL;
+
 const setPosts = posts => {
   return {
     type: 'GET_POSTS',
@@ -16,7 +18,7 @@ const addPost = post => {
 
 export const getPosts = () => {
   return dispatch => {
-    return fetch('http://localhost:3001/api/posts')
+    return fetch(`${API_URL}/posts`)
       .then(response => response.json())
       .then(posts => dispatch(setPosts(posts)))
       .catch(error => console.log(error));
@@ -25,7 +27,7 @@ export const getPosts = () => {
 
 export const createPost = post => {
   return dispatch => {
-    return fetch('http://localhost:3001/api/posts', {
+    return fetch(`${API_URL}/posts`, {
       method: "POST",
       headers: {"Content-Type": "application/json"},
       body: JSON.stringify({post: post})
