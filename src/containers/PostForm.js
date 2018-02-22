@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { updatePostFormData } from '../actions/postForm';
+import { createPost } from '../actions/posts'
 import { bindActionCreators } from 'redux';
 
 class PostForm extends Component {
@@ -9,6 +10,11 @@ class PostForm extends Component {
     const {name, value} = event.target
     const currentPostFormData = Object.assign({}, this.props.postFormData, {[name]: value})
     this.props.updatePostFormData(currentPostFormData)
+  }
+
+  handleOnSubmit = event => {
+    event.preventDefault();
+    this.props.createPost(this.props.postFormData)
   }
 
   render() {
@@ -59,7 +65,8 @@ const mapStateToProps = state => {
 
 const mapDispatchToProps = (dispatch) => {
   return bindActionCreators({
-    updatePostFormData
+    updatePostFormData,
+    createPost
   }, dispatch);
 }
 
