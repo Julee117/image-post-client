@@ -1,3 +1,5 @@
+import { resetPostForm } from './postForm'
+
 const setPosts = posts => {
   return {
     type: 'GET_POSTS',
@@ -29,7 +31,10 @@ export const createPost = post => {
       body: JSON.stringify({post: post})
     })
       .then(response => response.json())
-      .then(post => dispatch(addPost(post)))
+      .then(post => {
+        dispatch(addPost(post))
+        dispatch(resetPostForm())
+      })
       .catch(error => console.log(error))
   }
 }
