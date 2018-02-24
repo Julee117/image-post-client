@@ -1,0 +1,38 @@
+.App {
+  /* text-align: center; */
+}
+
+.App-header {
+  /* background-color: #222;
+  height: 150px;
+  padding: 20px;
+  color: white; */
+}
+
+body {
+  background-color: black;
+}
+
+.PostImage {
+  width: 200px;
+  height: 220px;
+  display: inline-block;
+  border-radius: 2px;
+  border: 2px solid white;
+  margin: 3rem;
+  position: relative;
+}
+
+.PostImage:hover {
+  box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
+}
+
+.PostsContainer {
+  background-color: rgb(49, 50, 55);
+  margin: 5rem 10rem;
+  border-radius: 5px;
+}
+
+.Form {
+  color: white;
+}
