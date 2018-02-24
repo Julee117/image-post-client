@@ -37,6 +37,30 @@
   color: white;
 }
 
-.PostCard {
+.postCard {
   color: white;
+  width: 40%;
+  margin: auto;
+  padding: 10px;
+}
+
+.titleHeader {
+  background-color: rgb(56, 58, 62);
+  width: 528px;
+  padding: 15px;
+  border-top-left-radius: 5px;
+  border-top-right-radius: 5px;
+}
+
+.showImage {
+  width: 528px;
+  height: 648px;
+}
+
+.imageContent {
+  background-color: rgb(56, 58, 62);
+  width: 528px;
+  padding: 15px;
+  border-bottom-left-radius: 5px;
+  border-bottom-right-radius: 5px;
 }
