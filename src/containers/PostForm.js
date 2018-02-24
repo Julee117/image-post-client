@@ -3,6 +3,7 @@ import { connect } from 'react-redux';
 import { updatePostFormData } from '../actions/postForm';
 import { createPost } from '../actions/posts'
 import { bindActionCreators } from 'redux';
+import { Button } from 'react-bootstrap';
 
 class PostForm extends Component {
 
@@ -20,7 +21,7 @@ class PostForm extends Component {
   render() {
     const {title, image_url, content} = this.props.postFormData;
     return (
-      <div>
+      <div className="Form text-center">
         <h1>Create new post</h1>
         <form onSubmit={this.handleOnSubmit}>
           <div>
@@ -50,7 +51,7 @@ class PostForm extends Component {
               value={content}
             />
           </div>
-          <button type="submit">Submit</button>
+          <Button bsStyle="info" type="submit">Submit</Button>
         </form>
       </div>
     )
