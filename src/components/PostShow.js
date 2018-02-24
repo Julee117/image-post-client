@@ -2,10 +2,10 @@ import React from 'react';
 import { connect } from 'react-redux';
 
 const PostShow = ({ post }) =>
-  <div className="PostCard">
-    <h3>{post.title}</h3>
-    <img className="ShowImage" src={post.image_url} alt={post.title} />
-    <p>{post.content}</p>
+  <div className="postCard">
+    <h3 className="titleHeader">{post.title}</h3>
+    <img className="showImage" src={post.image_url} alt={post.title} />
+    <p className="imageContent">{post.content}</p>
   </div>;
 
 const mapStateToProps = (state, ownProps) => {
