@@ -21,7 +21,7 @@ class PostForm extends Component {
   render() {
     const {title, image_url, content} = this.props.postFormData;
     return (
-      <div className="Form text-center">
+      <div className="postForm text-center">
         <h1>Create new post</h1>
         <form onSubmit={this.handleOnSubmit}>
           <div>
