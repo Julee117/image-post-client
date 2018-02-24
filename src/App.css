@@ -9,7 +9,7 @@
   color: white; */
 }
 
-body {
+#main {
   background-color: black;
 }
 
@@ -34,5 +34,9 @@ body {
 }
 
 .Form {
+  color: white;
+}
+
+.PostCard {
   color: white;
 }
