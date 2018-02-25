@@ -7,7 +7,7 @@ const Posts = ({ posts }) => {
   );
 
   return(
-    <div className="PostsContainer">
+    <div className="postsContainer">
       {renderPosts}
     </div>
   )
