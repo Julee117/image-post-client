@@ -35,3 +35,10 @@ export const createComment = comment => {
       .catch(error => console.log(error))
   }
 }
+
+export const deleteComment = comment => {
+  return {
+    type: 'DELETE_COMMENT',
+    comment
+  }
+}
