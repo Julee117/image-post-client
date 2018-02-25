@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { getComments } from '../actions/comments';
 import { bindActionCreators } from 'redux';
+import CommentShow from './CommentShow';
 
 class CommentsList extends Component {
   componentDidMount() {
@@ -9,8 +10,15 @@ class CommentsList extends Component {
   }
 
   render() {
-    return (
-      
+    const findComments = this.props.comments.filter(comment => comment.id === this.props.post.id)
+      const filteredComments = findComments.map(comment => {
+        return <CommentShow key={comment.id} comment={comment} />
+      })
+
+    return(
+      <div>
+        {filteredComments}
+      </div>
     )
   }
 }
