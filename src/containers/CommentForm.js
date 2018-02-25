@@ -1,4 +1,7 @@
 import React, { Component } from 'react';
+import { connect } from 'react-redux';
+import { createComment } from '../actions/comments'
+import { bindActionCreators } from 'redux';
 
 class CommentForm extends Component {
   constructor(props) {
@@ -15,11 +18,23 @@ class CommentForm extends Component {
     })
   }
 
+  handleOnSubmit = event => {
+    event.preventDefault();
+    const comment = {
+      content: this.state.content,
+      post_id: this.props.post.id
+    }
+    this.props.createComment(comment)
+    this.setState({
+      content: ""
+    })
+  }
+
   render() {
     return (
       <div className="commentForm">
         <h4>Write a comment</h4>
-        <form>
+        <form onSubmit={this.handleOnSubmit}>
           <div>
             <textarea
               type="text"
@@ -35,4 +50,10 @@ class CommentForm extends Component {
   }
 }
 
-export default CommentForm;
+const mapDispatchToProps = (dispatch) => {
+  return bindActionCreators({
+    createComment
+  }, dispatch);
+}
+
+export default connect(null, mapDispatchToProps)(CommentForm);
