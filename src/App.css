@@ -13,7 +13,7 @@
   background-color: black;
 }
 
-.PostImage {
+.postImage {
   width: 200px;
   height: 220px;
   display: inline-block;
@@ -23,17 +23,17 @@
   position: relative;
 }
 
-.PostImage:hover {
+.postImage:hover {
   box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
 }
 
-.PostsContainer {
+.postsContainer {
   background-color: rgb(49, 50, 55);
   margin: 5rem 10rem;
   border-radius: 5px;
 }
 
-.Form {
+.postForm {
   color: white;
 }
 
@@ -63,4 +63,20 @@
   padding: 15px;
   border-bottom-left-radius: 5px;
   border-bottom-right-radius: 5px;
+}
+
+.commentForm {
+  background-color: rgb(56, 58, 62);
+  width: 528px;
+  padding: 15px;
+  border-radius: 5px;
+}
+
+.comment {
+  background-color: rgb(56, 58, 62);
+  color: white;
+  width: 528px;
+  padding: 10px;
+  border-radius: 5px;
+  margin-top: 1rem;
 }
