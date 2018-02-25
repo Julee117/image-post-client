@@ -10,7 +10,7 @@ class CommentsList extends Component {
   }
 
   render() {
-    const findComments = this.props.comments.filter(comment => comment.id === this.props.post.id)
+    const findComments = this.props.comments.filter(comment => comment.post_id === this.props.post.id)
       const filteredComments = findComments.map(comment => {
         return <CommentShow key={comment.id} comment={comment} />
       })
