@@ -14,6 +14,13 @@ const addComment = comment => {
   }
 }
 
+const removeComment = comment => {
+  return {
+    type: 'DELETE_COMMENT',
+    comment
+  }
+}
+
 export const getComments = () => {
   return dispatch => {
     return fetch(`${API_URL}/comments`)
@@ -37,8 +44,11 @@ export const createComment = comment => {
 }
 
 export const deleteComment = comment => {
-  return {
-    type: 'DELETE_COMMENT',
-    comment
+  return dispatch => {
+    return fetch(`${API_URL}/comments/${comment.id}`, {
+      method: "DELETE",
+    })
+      .then(response => dispatch(removeComment(comment)))
+      .catch(error => console.log(error))
   }
 }
