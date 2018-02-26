@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
 import './App.css';
 import PostsPage from './containers/PostsPage';
-import { BrowserRouter as Router, Route, NavLink, Switch } from 'react-router-dom';
+import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
+import Navbar from './components/Navbar';
 
 class App extends Component {
 
@@ -11,8 +12,7 @@ class App extends Component {
         <Router>
           <div>
             <div style={{ paddingBottom: '10px', marginBottom: '12px' }}>
-              <NavLink style={{ marginRight: '10px' }} to="/">Home</NavLink>
-              <NavLink style={{ marginRight: '10px' }} to="/posts/new">New post</NavLink>
+              <Navbar />
             </div>
             <Switch>
               <Route path="/posts" component={PostsPage} />
