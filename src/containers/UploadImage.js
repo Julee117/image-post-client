@@ -19,6 +19,16 @@ class UploadImage extends Component {
       'signature': signature
     }
   }
+
+  render() {
+    return (
+      <div className="dropZoneBox">
+        <Dropzone onDrop={this.uploadFile.bind(this)}>
+          <p>Drop an image or click to select a file to upload</p>
+        </Dropzone>
+      </div>
+    );
+  };
 }
 
 export default UploadImage;
