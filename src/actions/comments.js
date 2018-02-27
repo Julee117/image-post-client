@@ -35,7 +35,7 @@ export const createComment = comment => {
     return fetch(`${API_URL}/comments`, {
       method: "POST",
       headers: {"Content-Type": "application/json"},
-      body: JSON.stringify({comment: comment})
+      body: JSON.stringify({comment})
     })
       .then(response => response.json())
       .then(comment => dispatch(addComment(comment)))
