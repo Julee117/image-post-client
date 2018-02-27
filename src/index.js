@@ -8,6 +8,7 @@ import thunk from 'redux-thunk';
 import rootReducer from './reducers/index';
 import registerServiceWorker from './registerServiceWorker';
 import 'bootstrap/dist/css/bootstrap.css';
+import 'font-awesome/css/font-awesome.min.css';
 
 const store = createStore(
   rootReducer,
