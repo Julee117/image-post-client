@@ -29,8 +29,15 @@
 
 .postsContainer {
   background-color: rgb(49, 50, 55);
-  margin: 5rem 10rem;
+  margin: 2rem 10rem;
   border-radius: 5px;
+}
+
+.postHeader {
+  color: white;
+  text-align: center;
+  font-family: 'Chewy', serif;
+  font-size: 36px;
 }
 
 .postForm {
@@ -79,4 +86,12 @@
   padding: 10px;
   border-radius: 5px;
   margin-top: 1rem;
+}
+
+.dropZoneBox {
+  width: 400px;
+  height: 100px;
+  border: 1px dashed white;
+  margin: auto;
+  padding: 10px;
 }
