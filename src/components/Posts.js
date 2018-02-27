@@ -7,8 +7,11 @@ const Posts = ({ posts }) => {
   );
 
   return(
-    <div className="postsContainer">
-      {renderPosts}
+    <div>
+      <h3 className="postHeader">Funny viral images</h3>
+      <div className="postsContainer">
+        {renderPosts}
+      </div>
     </div>
   )
 }
