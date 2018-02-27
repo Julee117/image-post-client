@@ -1,45 +1,60 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { updatePostFormData } from '../actions/postForm';
 import { createPost } from '../actions/posts'
 import { bindActionCreators } from 'redux';
 import { Button } from 'react-bootstrap';
+import UploadImage from './UploadImage';
 
 class PostForm extends Component {
+  constructor(props) {
+    super(props);
+
+    this.state = {
+      title: "",
+      image_url: "",
+      content: ""
+    }
+  }
 
   handleChange = event => {
     const {name, value} = event.target
-    const currentPostFormData = Object.assign({}, this.props.postFormData, {[name]: value})
-    this.props.updatePostFormData(currentPostFormData)
+    this.setState({
+      [name]: value
+    })
+  }
+
+  handleImageUpload = image => {
+    this.setState({
+      image_url: image.imageUrl
+    })
   }
 
   handleOnSubmit = event => {
     event.preventDefault();
-    this.props.createPost(this.props.postFormData)
+    this.props.createPost(this.state);
+    this.props.history.push('/')
+    this.setState({
+      title: "",
+      image_url: "",
+      content: ""
+    })
   }
 
   render() {
-    const {title, image_url, content} = this.props.postFormData;
     return (
       <div className="postForm text-center">
         <h1>Create new post</h1>
         <form onSubmit={this.handleOnSubmit}>
+          <div>
+            <UploadImage image={this.handleImageUpload}/>
+          </div>
           <div>
             <label htmlFor="title">Title:</label>
             <input
               type="text"
               onChange={this.handleChange}
               name="title"
-              value={title}
-            />
-          </div>
-          <div>
-            <label htmlFor="image_url">Image:</label>
-            <input
-              type="text"
-              onChange={this.handleChange}
-              name="image_url"
-              value={image_url}
+              value={this.state.title}
             />
           </div>
           <div>
@@ -48,7 +63,7 @@ class PostForm extends Component {
               type="text"
               onChange={this.handleChange}
               name="content"
-              value={content}
+              value={this.state.content}
             />
           </div>
           <Button bsStyle="info" type="submit">Submit</Button>
@@ -58,17 +73,10 @@ class PostForm extends Component {
   }
 }
 
-const mapStateToProps = state => {
-  return {
-    postFormData: state.postFormData
-  }
-}
-
 const mapDispatchToProps = (dispatch) => {
   return bindActionCreators({
-    updatePostFormData,
     createPost
   }, dispatch);
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(PostForm);
+export default connect(null, mapDispatchToProps)(PostForm);
