@@ -2,7 +2,8 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 
 const Posts = ({ posts }) => {
-  const renderPosts = posts.map(post =>
+  const sortedPosts = posts.sort((a, b) => a.likes < b.likes)
+  const renderPosts = sortedPosts.map(post =>
     <Link key={post.id} to={`/posts/${post.id}`}>
       <img className="postImage img-responsive" src={post.image_url} alt={post.title} />
     </Link>
