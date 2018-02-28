@@ -135,7 +135,7 @@
   margin-bottom: 10px;
 }
 
-/* Comment */
+/* CommentShow */
 .comment {
   background-color: rgb(56, 58, 62);
   color: white;
@@ -143,6 +143,10 @@
   padding: 10px;
   border-radius: 5px;
   margin-top: 1rem;
+}
+
+.deleteButton {
+  margin-left: 85%;
 }
 
 /* UploadImage */

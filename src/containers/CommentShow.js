@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import { deleteComment } from '../actions/comments';
+import { Button } from 'react-bootstrap';
 
 class CommentShow extends Component {
 
@@ -16,7 +17,7 @@ class CommentShow extends Component {
         <p key={this.props.comment.id}>
           {this.props.comment.content}
         </p>
-        <button onClick={this.handleOnClick}>Delete</button>
+        <Button bsStyle="danger" bsSize="small" className="deleteButton" onClick={this.handleOnClick}>Delete</Button>
       </div>
     )
   }
