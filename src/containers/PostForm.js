@@ -45,21 +45,23 @@ class PostForm extends Component {
       <div className="postForm text-center">
         <h1>Create new post</h1>
         <form onSubmit={this.handleOnSubmit}>
-          <div>
+          <div className="inputBox">
             <UploadImage image={this.handleImageUpload}/>
           </div>
-          <div>
+          <div className="inputBox">
             <label htmlFor="title">Title:</label>
             <input
+              className="titleInputBox"
               type="text"
               onChange={this.handleChange}
               name="title"
               value={this.state.title}
             />
           </div>
-          <div>
-            <label htmlFor="content">Content:</label>
-            <input
+          <div className="inputBox">
+            <label htmlFor="content" className="content">Content:</label>
+            <textarea
+              className="contentInputBox"
               type="text"
               onChange={this.handleChange}
               name="content"

@@ -65,7 +65,31 @@
 
 /* PostForm */
 .postForm {
+  background-color: rgb(71, 73, 79);
   color: white;
+  width: 40%;
+  margin: auto;
+  padding: 10px;
+  margin-top: 50px;
+  border-radius: 5px;
+}
+
+.inputBox {
+  margin-top: 15px;
+}
+
+.titleInputBox {
+  margin-left: 40px;
+  width: 50%;
+}
+
+.contentInputBox {
+  margin-left: 15px;
+  width: 50%;
+}
+
+.content {
+  margin-bottom: 15px;
 }
 
 /* PostShow */
