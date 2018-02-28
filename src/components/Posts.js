@@ -3,9 +3,9 @@ import { Link } from 'react-router-dom';
 
 const Posts = ({ posts }) => {
   const renderPosts = posts.map(post =>
-
-      <Link key={post.id} to={`/posts/${post.id}`}><img className="postImage img-responsive" src={post.image_url} alt={post.title} /></Link>
-
+    <Link key={post.id} to={`/posts/${post.id}`}>
+      <img className="postImage img-responsive" src={post.image_url} alt={post.title} />
+    </Link>
   );
 
   return(
