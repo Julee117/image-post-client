@@ -1,13 +1,17 @@
 import React from 'react';
 import { connect } from 'react-redux';
+import { bindActionCreators } from 'redux';
 import CommentForm from '../containers/CommentForm';
 import CommentsList from '../containers/CommentsList';
+import PostLikes from './PostLikes';
+import { addLikes } from '../actions/posts';
 
-const PostShow = ({ post }) =>
+const PostShow = ({ post, addLikes }) =>
   <div className="postCard">
     <h3 className="titleHeader">{post.title}</h3>
     <img className="showImage" src={post.image_url} alt={post.title} />
     <p className="imageContent">{post.content}</p>
+    <PostLikes post={post} addLikes={addLikes}/>
     <div>
       <CommentForm post={post}/>
       <CommentsList post={post}/>
@@ -24,4 +28,10 @@ const mapStateToProps = (state, ownProps) => {
   }
 };
 
-export default connect(mapStateToProps)(PostShow);
+const mapDispatchToProps = (dispatch) => {
+  return bindActionCreators({
+    addLikes
+  }, dispatch);
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(PostShow);
