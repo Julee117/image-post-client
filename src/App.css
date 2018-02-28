@@ -13,13 +13,36 @@
   background-color: black;
 }
 
+/* Navbar */
+.buttonName {
+  color: white;
+}
+
+.homeButton {
+  margin-top: 15px;
+  margin-bottom: 15px;
+  margin-left: 160px;
+}
+
+.newPostButton {
+  margin-top: 15px;
+  margin-bottom: 15px;
+  margin-left: 15px;
+}
+
+.navBar {
+  background-color: rgb(49, 50, 55);
+}
+
+/* Posts */
 .postImage {
   width: 200px;
   height: 220px;
   display: inline-block;
   border-radius: 2px;
   border: 2px solid white;
-  margin: 3rem;
+  margin: 2rem;
+  padding: 10px;
   position: relative;
 }
 
@@ -40,10 +63,12 @@
   font-size: 36px;
 }
 
+/* PostForm */
 .postForm {
   color: white;
 }
 
+/* PostShow */
 .postCard {
   color: white;
   width: 40%;
@@ -72,6 +97,7 @@
   border-bottom-right-radius: 5px;
 }
 
+/* CommentForm */
 .commentForm {
   background-color: rgb(56, 58, 62);
   width: 528px;
@@ -79,6 +105,7 @@
   border-radius: 5px;
 }
 
+/* Comment */
 .comment {
   background-color: rgb(56, 58, 62);
   color: white;
@@ -88,6 +115,7 @@
   margin-top: 1rem;
 }
 
+/* UploadImage */
 .dropZoneBox {
   width: 400px;
   height: 100px;

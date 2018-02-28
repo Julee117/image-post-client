@@ -1,10 +1,11 @@
 import React from 'react';
 import { NavLink } from 'react-router-dom';
+import { Button } from 'react-bootstrap';
 
 const Navbar = () =>
-  <div>
-    <NavLink style={{ marginRight: '10px' }} to="/">Home</NavLink>
-    <NavLink style={{ marginRight: '10px' }} to="/posts/new">New post</NavLink>
+  <div className="navBar">
+    <Button className="homeButton" bsStyle="success"><NavLink to="/" className="buttonName">Home</NavLink></Button>
+    <Button className="newPostButton" bsStyle="success"><NavLink to="/posts/new" className="buttonName">New post</NavLink></Button>
   </div>
 
 export default Navbar;
