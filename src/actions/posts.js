@@ -1,5 +1,3 @@
-import { resetPostForm } from './postForm'
-
 const API_URL = process.env.REACT_APP_API_URL;
 
 const setPosts = posts => {
@@ -12,7 +10,14 @@ const setPosts = posts => {
 const addPost = post => {
   return {
     type: 'CREATE_POST',
-    post
+    post: Object.assign({}, post, {likes: 0})
+  }
+}
+
+const increaseLikes = data => {
+  return {
+    type: 'ADD_LIKES',
+    data
   }
 }
 
@@ -30,13 +35,22 @@ export const createPost = post => {
     return fetch(`${API_URL}/posts`, {
       method: "POST",
       headers: {"Content-Type": "application/json"},
-      body: JSON.stringify({post: post})
+      body: JSON.stringify({post})
     })
       .then(response => response.json())
-      .then(post => {
-        dispatch(addPost(post))
-        dispatch(resetPostForm())
-      })
+      .then(post => dispatch(addPost(post)))
       .catch(error => console.log(error))
+  }
+}
+
+export const addLikes = post => {
+  return dispatch => {
+    return fetch(`${API_URL}/posts/${post.id}`, {
+      method: "PATCH",
+      headers: {"Content-Type": "application/json"},
+      body: JSON.stringify({post})
+    })
+      .then(response => response.json())
+      .then(data => dispatch(increaseLikes(data)))
   }
 }
