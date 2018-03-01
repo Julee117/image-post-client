@@ -1,18 +1,15 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
-import CommentForm from '../containers/CommentForm';
-import CommentsList from '../containers/CommentsList';
-import PostLikes from './PostLikes';
+import CommentForm from './CommentForm';
+import CommentsList from './CommentsList';
+import PostLikes from '../components/PostLikes';
 import { addLikes } from '../actions/posts';
-import PostMove from '../containers/PostMove';
+import PostHeader from '../components/PostHeader';
 
 const PostShow = ({ post, addLikes }) =>
   <div className="postCard col-lg-6">
-    <div className="titleHeader">
-      {post.title}
-      <PostMove post={post} />
-    </div>
+    <PostHeader post={post}/>
     <img className="showImage" src={post.image_url} alt={post.title} />
     <div className="imageContent">
       <p>{post.content}</p>
