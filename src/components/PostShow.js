@@ -5,13 +5,20 @@ import CommentForm from '../containers/CommentForm';
 import CommentsList from '../containers/CommentsList';
 import PostLikes from './PostLikes';
 import { addLikes } from '../actions/posts';
+import PostMove from '../containers/PostMove';
 
 const PostShow = ({ post, addLikes }) =>
-  <div className="postCard">
-    <h3 className="titleHeader">{post.title}</h3>
+  <div className="postCard col-lg-6">
+    <div className="titleHeader">
+      {post.title}
+      <PostMove post={post} />
+    </div>
     <img className="showImage" src={post.image_url} alt={post.title} />
-    <p className="imageContent">{post.content}</p>
-    <PostLikes post={post} addLikes={addLikes}/>
+    <div className="imageContent">
+      <p>{post.content}</p>
+      <p className="line"></p>
+      <PostLikes post={post} addLikes={addLikes}/>
+    </div>
     <div>
       <CommentForm post={post}/>
       <CommentsList post={post}/>
