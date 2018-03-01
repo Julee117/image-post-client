@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import PostShow from '../components/PostShow';
+import PostShow from './PostShow';
 import PostForm from './PostForm';
 import Posts from '../components/Posts';
 import { getPosts } from '../actions/posts';
