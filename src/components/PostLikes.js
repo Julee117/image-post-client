@@ -5,7 +5,7 @@ const PostLikes = ({post, addLikes}) =>
     <p className="icons">
       <i onClick={() => addLikes(post)} className="fa fa-thumbs-o-up fa-2x thumbs" aria-hidden="true"></i>
       <span> Like</span>
-      <span className="likes">{post.likes === null || post.likes === 0 ? "" : <i className="fa fa-smile-o smile" aria-hidden="true"> {post.likes} likes</i>}</span>
+      <span className="likes">{post.likes === null || post.likes === 0 ? "" : <i className="fa fa-smile-o smile" aria-hidden="true"> {post.likes}</i>}</span>
     </p>
   </div>
 
