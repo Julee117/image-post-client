@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { withRouter } from 'react-router';
+import { Button } from 'react-bootstrap';
 
 class PostMove extends Component {
 
@@ -10,10 +11,22 @@ class PostMove extends Component {
 
 
   render() {
-    const idx = this.props.sortedPosts.findIndex(sortPost => sortPost.id === this.props.post.id)
-    const nextPost = this.props.sortedPosts[idx + 1] || this.props.sortedPosts[0]
+    const idx = this.props.sortedPosts.findIndex(sortPost => sortPost.id === this.props.post.id);
+    const nextPost = this.props.sortedPosts[idx + 1] || this.props.sortedPosts[0];
+    const prevPost = this.props.sortedPosts[idx - 1];
+    let button = null;
+
+    if (idx !== 0) {
+      button = <Button className="leftArrow" onClick={() => this.handleNextPost(prevPost.id)}><i className="fa fa-chevron-left"></i></Button>
+    }
     return (
-      <button onClick={() => this.handleNextPost(nextPost.id)}>Next</button>
+      <span>
+        <Button bsStyle="primary" className= "nextButton" onClick={() => this.handleNextPost(nextPost.id)}>
+          Next Post
+          <i className="fa fa-chevron-right rightArrow"></i>
+        </Button>
+        {button}
+    </span>
     )
   }
 }
