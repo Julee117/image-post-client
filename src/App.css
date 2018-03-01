@@ -41,7 +41,6 @@
   border-radius: 2px;
   border: 2px solid white;
   margin-top: 2rem;
-  margin-bottom: 2rem;
   margin-left: 1.65rem;
   padding: 10px;
 }
@@ -54,6 +53,10 @@
   background-color: rgb(49, 50, 55);
   margin: 2rem 10rem;
   border-radius: 5px;
+}
+
+.imageDiv {
+  margin-bottom: 2rem;
 }
 
 .postHeader {
@@ -99,15 +102,6 @@
   padding: 10px;
 }
 
-.titleHeader {
-  background-color: rgb(56, 58, 62);
-  width: 628px;
-  padding: 15px;
-  border-top-left-radius: 5px;
-  border-top-right-radius: 5px;
-  font-size: 28px;
-}
-
 .showImage {
   width: 628px;
   height: 648px;
@@ -126,6 +120,16 @@
   width: 100%;
   height: 2px;
   background-color: rgb(84, 86, 90);
+}
+
+/* PostHeader */
+.titleHeader {
+  background-color: rgb(56, 58, 62);
+  width: 628px;
+  padding: 15px;
+  border-top-left-radius: 5px;
+  border-top-right-radius: 5px;
+  font-size: 28px;
 }
 
 /* PostLikes */
