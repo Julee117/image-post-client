@@ -4,8 +4,7 @@ Image Post is an application built with React Redux front-end and Rails API back
 
 ## Getting Started
 
-Clone the API repository [here](https://github.com/julee117/image-post-api)
-Clone this repository
+Clone the API repository [here](https://github.com/julee117/image-post-api) and clone this client repository.
 
 ```
 cd image-post-api
@@ -15,7 +14,7 @@ rails s -p 3001
 
 cd image-post-client
 npm install or yarn install
-npm start or yarn start 
+npm start or yarn start
 ```
 
 ## Contributing
