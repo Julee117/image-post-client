@@ -6,7 +6,7 @@ import CommentShow from './CommentShow';
 
 class CommentsList extends Component {
   componentDidMount() {
-    this.props.getComments();
+    this.props.getComments(this.props.post.id);
   }
 
   render() {
