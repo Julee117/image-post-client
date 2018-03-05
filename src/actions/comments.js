@@ -21,9 +21,9 @@ const removeComment = comment => {
   }
 }
 
-export const getComments = () => {
+export const getComments = id => {
   return dispatch => {
-    return fetch(`${API_URL}/comments`)
+    return fetch(`${API_URL}/posts/${id}/comments`)
       .then(response => response.json())
       .then(comments => dispatch(setComments(comments)))
       .catch(error => console.log(error));
@@ -32,7 +32,7 @@ export const getComments = () => {
 
 export const createComment = comment => {
   return dispatch => {
-    return fetch(`${API_URL}/comments`, {
+    return fetch(`${API_URL}/posts/${comment.post_id}/comments`, {
       method: "POST",
       headers: {"Content-Type": "application/json"},
       body: JSON.stringify({comment})
@@ -45,7 +45,7 @@ export const createComment = comment => {
 
 export const deleteComment = comment => {
   return dispatch => {
-    return fetch(`${API_URL}/comments/${comment.id}`, {
+    return fetch(`${API_URL}/posts/${comment.post_id}/comments/${comment.id}`, {
       method: "DELETE",
     })
       .then(response => dispatch(removeComment(comment)))
