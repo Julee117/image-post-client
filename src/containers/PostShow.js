@@ -4,10 +4,16 @@ import { bindActionCreators } from 'redux';
 import CommentForm from './CommentForm';
 import CommentsList from './CommentsList';
 import PostLikes from '../components/PostLikes';
-import { addLikes } from '../actions/posts';
+import { addLikes, deletePost } from '../actions/posts';
 import PostHeader from '../components/PostHeader';
+import { Button } from 'react-bootstrap';
 
 class PostShow extends Component {
+  handleOnClick = () => {
+    this.props.deletePost(this.props.post)
+    this.props.history.push('/')
+  }
+  
   render() {
     const { post, addLikes } = this.props;
 
@@ -19,6 +25,7 @@ class PostShow extends Component {
           <p>{post.content}</p>
           <p className="line"></p>
           <PostLikes post={post} addLikes={addLikes} />
+          <Button bsStyle="danger" bsSize="small" className="deleteButton" onClick={this.handleOnClick}>Delete</Button>
         </div>
         <div>
           <CommentForm post={post} />
@@ -41,7 +48,7 @@ const mapStateToProps = (state, ownProps) => {
 
 const mapDispatchToProps = (dispatch) => {
   return bindActionCreators({
-    addLikes
+    addLikes, deletePost
   }, dispatch);
 }
 
