@@ -21,6 +21,13 @@ const increaseLikes = data => {
   }
 }
 
+const removePost = post => {
+  return {
+    type: 'DELETE_POST',
+    post
+  }
+}
+
 export const getPosts = () => {
   return dispatch => {
     return fetch(`${API_URL}/posts`)
@@ -53,5 +60,15 @@ export const addLikes = post => {
       .then(response => response.json())
       .then(data => dispatch(increaseLikes(data)))
       .catch(error => console.log(error))
+  }
+}
+
+export const deletePost = post => {
+  return dispatch => {
+    return fetch(`${API_URL}/posts/${post.id}`, {
+      method: "DELETE",
+    })
+    .then(response => dispatch(removePost(post)))
+    .catch(error => console.log(error))
   }
 }

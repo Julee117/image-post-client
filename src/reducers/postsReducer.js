@@ -12,6 +12,9 @@ export default (state = [], action) => {
         Object.assign({}, post, {likes: post.likes += 1}),
         ...state.slice(index+1)
       ];
+    case 'DELETE_POST':
+      const posts = state.filter(post => post.id !== action.post.id);
+      return posts
     default:
       return state;
   }
